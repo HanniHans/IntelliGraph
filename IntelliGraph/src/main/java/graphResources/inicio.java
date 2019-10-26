@@ -1,24 +1,20 @@
 package graphResources;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author hanni
- */
 public class inicio extends javax.swing.JFrame {
 
     String nombre;
-    /**
-     * Creates new form inicio
-     */
+    String lineaTextCSV;
+    String[] datos;
     
     public String getNombre() {
         return nombre;
@@ -179,14 +175,29 @@ public class inicio extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         JFileChooser archivo=new JFileChooser();
-        archivo.showOpenDialog(this);
+        int seleccion = archivo.showOpenDialog(this);
         File jf = archivo.getSelectedFile();
+        
+        String path = jf.getAbsolutePath();
+        
+        File file = new File(path);
+        FileReader filerd = new FileReader(file);
+        BufferedReader buffered = new BufferedReader(filerd);
+        
         nombre = jf.getName();
         if(archivo != null){
             
             jTextField1.setText(nombre); //Obtener nombre
             
         }
+        if(seleccion == JFileChooser.APPROVE_OPTION)
+        {
+            
+        }
+        
+        jButton1.setVisible(false);
+        jButton2.setVisible(true);
+        jButton3.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
