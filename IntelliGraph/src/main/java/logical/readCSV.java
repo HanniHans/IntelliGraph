@@ -10,13 +10,12 @@ import java.io.IOException;
 
 public class readCSV 
 {   
-    inicio init = new inicio();
+    
     String lineaTextCSV;
-    String nombre = init.getNombre();
     BufferedReader buffered;
     String[] datos;
 
-    public readCSV() throws FileNotFoundException, IOException {
+    public readCSV(String nombre) throws FileNotFoundException, IOException {
         this.buffered = new BufferedReader(new FileReader(nombre));
         
         while((lineaTextCSV = buffered.readLine()) != null)
@@ -24,8 +23,14 @@ public class readCSV
             datos = lineaTextCSV.split(",");
             
         }
-        
+        System.out.println(datos.length);
+        for(int i = 0; i< datos.length; i++)
+        {
+            System.out.println(datos[i]);
+        }
     }
+    
+    
     
     
     
