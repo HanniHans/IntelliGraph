@@ -5,6 +5,10 @@
  */
 package graphResources;
 
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author hanni
@@ -32,6 +36,12 @@ public class fileChooser extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jFileChooser1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFileChooser1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -51,6 +61,26 @@ public class fileChooser extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jFileChooser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFileChooser1ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser selectorArchivo = (JFileChooser)evt.getSource(); //Sele
+        String command = evt.getActionCommand();
+        File archivoSeleccionado=selectorArchivo.getSelectedFile();
+        if(command.equals(JFileChooser.APPROVE_SELECTION)){ //cuando presiona el boton aceptar
+            System.out.println(archivoSeleccionado);
+            JOptionPane.showMessageDialog(this, "Ruta:"+archivoSeleccionado+
+                    "\n Archivo:"+archivoSeleccionado.getName());
+        }else if(command.equals(JFileChooser.CANCEL_SELECTION)){ //Cuando presiona el boton cancelar
+            this.setVisible(false);
+            
+        }
+        //String hola = archovoSeleccionado;
+        String hola= archivoSeleccionado;
+        
+        
+        
+    }//GEN-LAST:event_jFileChooser1ActionPerformed
 
     /**
      * @param args the command line arguments
