@@ -8,19 +8,22 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+
 
 
 public class inicio extends javax.swing.JFrame {
-
-    String nombre;
-    String lineaTextCSV;
+    JFileChooser selector = new JFileChooser();
+    FileNameExtensionFilter filter = new FileNameExtensionFilter("CSV", "csv");
+    String path;
+    String textCSV;
     String[] datos;
+    String[][] data;
     
-    public String getNombre() {
-        return nombre;
-        
-    }
-
+    
+    
+    
     public inicio() {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -173,28 +176,12 @@ public class inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        JFileChooser archivo=new JFileChooser();
-        int seleccion = archivo.showOpenDialog(this);
-        File jf = archivo.getSelectedFile();
-        
-        String path = jf.getAbsolutePath();
-        
-        File file = new File(path);
-        FileReader filerd = new FileReader(file);
-        BufferedReader buffered = new BufferedReader(filerd);
-        
-        nombre = jf.getName();
-        if(archivo != null){
-            
-            jTextField1.setText(nombre); //Obtener nombre
-            
-        }
-        if(seleccion == JFileChooser.APPROVE_OPTION)
-        {
-            
-        }
-        
+       selector.setFileFilter(filter);
+       int returnVal = selector.showOpenDialog(null);
+       if(returnVal == JFileChooser.APPROVE_OPTION)
+       {
+           path = selector.getSelectedFile().getAbsolutePath();
+       }
         jButton1.setVisible(false);
         jButton2.setVisible(true);
         jButton3.setVisible(true);
@@ -206,7 +193,34 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        File archivo = new File(path);
+        try {
+            FileReader fr = new FileReader(archivo);
+            BufferedReader br = new BufferedReader(fr);
+            
+            
+            for (int i = 0;(textCSV = br.readLine()) != null ; i++) 
+            {
+                datos = textCSV.split(",");
+                for (int j = 0; j < datos.length; j++) 
+                {
+                    data[i][j] = datos[j];
+                }
+            }
+            
+            for (int i = 0; i < datos.length; i++) 
+            {
+                System.out.println("Datos: "+datos[i]);
+            }
+            
+        } catch (FileNotFoundException ex) 
+        {
+            Logger.getLogger(inicio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
