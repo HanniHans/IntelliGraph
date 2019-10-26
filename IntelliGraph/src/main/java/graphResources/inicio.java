@@ -39,6 +39,7 @@ public class inicio extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         intelliGraph_Logo = new javax.swing.JPanel();
+        logo = new javax.swing.JLabel();
         ancord_Logo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -57,15 +58,21 @@ public class inicio extends javax.swing.JFrame {
             }
         });
 
+        logo.setText("jLabel2");
+
         javax.swing.GroupLayout intelliGraph_LogoLayout = new javax.swing.GroupLayout(intelliGraph_Logo);
         intelliGraph_Logo.setLayout(intelliGraph_LogoLayout);
         intelliGraph_LogoLayout.setHorizontalGroup(
             intelliGraph_LogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 178, Short.MAX_VALUE)
+            .addGroup(intelliGraph_LogoLayout.createSequentialGroup()
+                .addComponent(logo)
+                .addGap(0, 144, Short.MAX_VALUE))
         );
         intelliGraph_LogoLayout.setVerticalGroup(
             intelliGraph_LogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 72, Short.MAX_VALUE)
+            .addGroup(intelliGraph_LogoLayout.createSequentialGroup()
+                .addComponent(logo)
+                .addGap(0, 58, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout ancord_LogoLayout = new javax.swing.GroupLayout(ancord_Logo);
@@ -176,6 +183,9 @@ public class inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        
+        
        selector.setFileFilter(filter);
        int returnVal = selector.showOpenDialog(null);
        if(returnVal == JFileChooser.APPROVE_OPTION)
@@ -186,6 +196,7 @@ public class inicio extends javax.swing.JFrame {
         jButton2.setVisible(true);
         jButton3.setVisible(true);
         
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -273,5 +284,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel logo;
     // End of variables declaration//GEN-END:variables
 }
