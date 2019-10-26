@@ -67,16 +67,21 @@ public class fileChooser extends javax.swing.JDialog {
         JFileChooser selectorArchivo = (JFileChooser)evt.getSource(); //Sele
         String command = evt.getActionCommand();
         File archivoSeleccionado=selectorArchivo.getSelectedFile();
+        
+        String hola=archivoSeleccionado.getPath(); //Ruta en String
+        
         if(command.equals(JFileChooser.APPROVE_SELECTION)){ //cuando presiona el boton aceptar
-            System.out.println(archivoSeleccionado);
+            System.out.println(archivoSeleccionado+"\n");
+            System.out.println(selectorArchivo);
+            System.out.println("\nHola"+hola);
             JOptionPane.showMessageDialog(this, "Ruta:"+archivoSeleccionado+
                     "\n Archivo:"+archivoSeleccionado.getName());
         }else if(command.equals(JFileChooser.CANCEL_SELECTION)){ //Cuando presiona el boton cancelar
             this.setVisible(false);
             
         }
-        //String hola = archovoSeleccionado;
-        String hola= archivoSeleccionado;
+       
+        
         
         
         
@@ -127,4 +132,5 @@ public class fileChooser extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFileChooser jFileChooser1;
     // End of variables declaration//GEN-END:variables
+    String hola;
 }
