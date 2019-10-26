@@ -120,7 +120,7 @@ public class fileChooser extends javax.swing.JDialog {
                     }
                 });
                 dialog.setVisible(true);
-                nombre = dialog.
+                //nombre = dialog.
             }
         });
         

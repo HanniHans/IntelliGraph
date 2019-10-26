@@ -1,5 +1,8 @@
 package graphResources;
 
+import java.io.File;
+import javax.swing.JFileChooser;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -172,14 +175,14 @@ public class inicio extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        fileChooser dialogo=new fileChooser(this, true);
-        dialogo.setVisible(true);
-        String nombre_archivo = dialogo.;
-        jTextField1.setText("Archivo: "+nombre_archivo);
-        jButton1.setVisible(false);
-        jButton2.setVisible(true);
-        jButton3.setVisible(true);
-        
+        JFileChooser archivo=new JFileChooser();
+        archivo.showOpenDialog(this);
+        File jf = archivo.getSelectedFile();
+        if(archivo != null){
+            
+            jTextField1.setText(jf.getName());
+            
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
