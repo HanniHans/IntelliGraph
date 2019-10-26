@@ -72,7 +72,7 @@ public class fileChooser extends javax.swing.JDialog {
         
         if(command.equals(JFileChooser.APPROVE_SELECTION)){ //cuando presiona el boton aceptar
             System.out.println(archivoSeleccionado+"\n");
-            System.out.println(selectorArchivo);
+            //System.out.println(selectorArchivo);
             System.out.println("\nHola"+hola);
             JOptionPane.showMessageDialog(this, "Ruta:"+archivoSeleccionado+
                     "\n Archivo:"+archivoSeleccionado.getName());
