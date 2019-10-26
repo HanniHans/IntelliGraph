@@ -180,35 +180,7 @@ public class inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-
-        
-        
-        JFileChooser archivo=new JFileChooser();
-        int seleccion = archivo.showOpenDialog(this);
-        File jf = archivo.getSelectedFile();
-        
-        String path = jf.getAbsolutePath();
-        
-        File file = new File(path);
-        FileReader filerd = new FileReader(file);
-        BufferedReader buffered = new BufferedReader(filerd);
-        
-        nombre = jf.getName();
-        if(archivo != null){
-            
-            jTextField1.setText(nombre); //Obtener nombre
-            
-        }
-        if(seleccion == JFileChooser.APPROVE_OPTION)
-        {
-            
-        }
-        
-        jButton1.setVisible(false);
-        jButton2.setVisible(true);
-        jButton3.setVisible(true);
-        
+ 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
