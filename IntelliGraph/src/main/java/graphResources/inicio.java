@@ -180,7 +180,7 @@ public class inicio extends javax.swing.JFrame {
         File jf = archivo.getSelectedFile();
         if(archivo != null){
             
-            jTextField1.setText(jf.getName());
+            jTextField1.setText(jf.getName()); //Obtener nombre
             
         }
     }//GEN-LAST:event_jButton1ActionPerformed
