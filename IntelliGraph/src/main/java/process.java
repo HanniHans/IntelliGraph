@@ -13,7 +13,7 @@ public class process {
     public static void main(String[] args) {
         System.out.println("Pruebk");
         
-        float 
+        float k0;
     }
     
 }
